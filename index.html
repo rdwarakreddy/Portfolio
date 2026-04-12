@@ -61,40 +61,41 @@
       font-weight: 400;
       transition: all 0.2s ease;
     }
+
     /* DEFAULT (top - dark background) */
-.navbtn {
-  font-size: .74rem;
-  font-weight: 500;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.4);
-  padding: 9px 24px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all .25s ease;
-}
+    .navbtn {
+      font-size: .74rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .4);
+      padding: 9px 24px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
 
-/* HOVER (top) */
-.navbtn:hover {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-}
+    /* HOVER (top) */
+    .navbtn:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
 
-/* SCROLLED STATE */
-#nav.s .navbtn {
-  color: #000;
-  border: 1px solid rgba(0,0,0,.2);
-  background: transparent;
-}
+    /* SCROLLED STATE */
+    #nav.s .navbtn {
+      color: #000;
+      border: 1px solid rgba(0, 0, 0, .2);
+      background: transparent;
+    }
 
-/* HOVER WHEN SCROLLED */
-#nav.s .navbtn:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
+    /* HOVER WHEN SCROLLED */
+    #nav.s .navbtn:hover {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
 
     /* Hover */
     .navl a:hover {
@@ -365,6 +366,225 @@
         display: none !important;
       }
     }
+
+    /* ================= RESPONSIVE FIXES ================= */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+
+      nav {
+        padding: 20px 30px !important;
+      }
+
+      #hero {
+        padding: 0 30px 70px !important;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+
+      .hero-r {
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+
+      .hero-desc {
+        text-align: left !important;
+      }
+
+      #stats {
+        padding: 70px 30px !important;
+      }
+
+      .stats-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+
+      .stats-r {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      #services {
+        padding: 80px 30px !important;
+      }
+
+      .svc-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      #testi {
+        padding: 80px 30px !important;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      #clients {
+        padding: 80px 30px !important;
+      }
+
+      .bento {
+        grid-template-columns: repeat(6, 1fr) !important;
+      }
+
+      .bc {
+        grid-column: span 6 !important;
+      }
+
+      #contact {
+        padding: 80px 30px !important;
+      }
+
+      .ct-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 50px !important;
+      }
+
+      footer {
+        padding: 30px !important;
+        flex-direction: column !important;
+        gap: 20px;
+        text-align: center;
+      }
+
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+
+      nav {
+        padding: 16px 20px !important;
+      }
+
+      #hero {
+        padding: 0 20px 60px !important;
+      }
+
+      .hero-scroll {
+        display: none !important;
+      }
+
+      .hero-h1 {
+        font-size: 2.6rem !important;
+      }
+
+      #stats {
+        padding: 60px 20px !important;
+      }
+
+      .stats-r {
+        grid-template-columns: 1fr !important;
+      }
+
+      #services {
+        padding: 60px 20px !important;
+      }
+
+      .svc-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      #testi {
+        padding: 60px 20px !important;
+      }
+
+      #clients {
+        padding: 60px 20px !important;
+      }
+
+      .bento {
+        grid-template-columns: 1fr !important;
+      }
+
+      .bc {
+        grid-column: span 1 !important;
+      }
+
+      #contact {
+        padding: 60px 20px !important;
+      }
+
+      footer {
+        padding: 24px !important;
+      }
+
+      .ft-lnks {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* Disable custom cursor on mobile */
+      body {
+        cursor: auto !important;
+      }
+
+      #cdot,
+      #cring {
+        display: none !important;
+      }
+
+      /* MOBILE MENU */
+      #mobileMenu a {
+        color: #fff;
+        font-size: 1rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      #mobileMenu a:hover {
+        color: #F97316;
+      }
+
+      /* SHOW MENU BUTTON ON MOBILE */
+      @media(max-width:960px) {
+        #menuBtn {
+          display: block !important;
+        }
+      }
+
+      /* MENU ICON */
+      #menuBtn .bar {
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        margin: 5px 0;
+        transition: all .3s ease;
+      }
+
+      /* ANIMATE TO X */
+      #menuBtn.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      #menuBtn.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menuBtn.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      #menuBtn.active .bar {
+        background: #fff;
+        /* keep visible */
+      }
+
+      /* MENU ICON DEFAULT (top - dark bg) */
+      #menuBtn .bar {
+        background: #fff;
+      }
+
+      /* MENU ICON WHEN SCROLLED */
+      #nav.s #menuBtn .bar {
+        background: #000;
+      }
+
+    }
   </style>
 </head>
 
@@ -376,46 +596,59 @@
 
   <!-- NAV -->
   <nav id="nav"
-  style="position:fixed;top:0;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:padding .4s,background .4s;">
-  
-  <a href="#"
-    style="font-family:'DM Serif Display',serif;font-size:1.22rem;color:white;text-decoration:none;letter-spacing:-.01em;">
-    Sunny<span style="color:#F97316;font-weight:400;">&</span>co
-  </a>
+    style="position:fixed;top:0;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:padding .4s,background .4s;">
 
-  <div class="navl" style="display:flex;gap:34px;">
-    <a href="#stats"
-      style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-      Results
+    <a href="#"
+      style="font-family:'DM Serif Display',serif;font-size:1.22rem;color:white;text-decoration:none;letter-spacing:-.01em;">
+      Sunny<span style="color:#F97316;font-weight:400;">&</span>co
     </a>
 
-    <a href="#services"
-      style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-      Services
+    <div class="navl" style="display:flex;gap:34px;">
+      <a href="#stats" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
+        Results
+      </a>
+
+      <a href="#services" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
+        Services
+      </a>
+
+      <a href="#testi" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
+        Testimonials
+      </a>
+
+      <a href="#clients" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
+        Our Clients
+      </a>
+
+      <a href="#contact" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
+        Get in Touch
+      </a>
+    </div>
+
+    <a class="navbtn" href="#contact">
+      Grow My Business
     </a>
-
-    <a href="#testi"
-      style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-      Testimonials
     </a>
+    <!-- MOBILE MENU BUTTON -->
+    <div id="menuBtn" style="display:none;cursor:pointer;z-index:1000;position:relative;">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
 
-    <a href="#clients"
-      style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-      Our Clients
-    </a>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      style="position:fixed;top:0;right:-100%;width:100%;height:100vh;background:#000;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:right .4s ease;">
 
-    <a href="#contact"
-      style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-      Get in Touch
-    </a>
-  </div>
+      <a href="#stats">Results</a>
+      <a href="#services">Services</a>
+      <a href="#testi">Testimonials</a>
+      <a href="#clients">Our Clients</a>
+      <a href="#contact">Get in Touch</a>
 
-  <a class="navbtn" href="#contact">
-  Grow My Business
-</a>
-  </a>
+    </div>
 
-</nav>
+  </nav>
 
   <!-- HERO -->
   <section id="hero"
@@ -429,9 +662,9 @@
     <div class="hero-grid"
       style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;gap:48px;width:100%;">
       <div>
-        <div class="h-eyebrow"
+        <!-- <div class="h-eyebrow"
           style="display:inline-flex;align-items:center;gap:12px;font-size:.63rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.27);margin-bottom:38px;">
-          Digital agency · Est. 2012</div>
+          Digital agency · Est. 2012</div> -->
         <h1 class="hero-h1"
           style="font-family:'DM Serif Display',serif;font-size:clamp(3.4rem,5.8vw,5.6rem);line-height:.95;letter-spacing:-.035em;color:#fff;">
           <span><i>I craft</i></span>
@@ -855,91 +1088,98 @@
 
   <!-- CONTACT -->
   <section id="contact" style="background:#000;padding:110px 60px;">
-  <div class="ct-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;">
-    
-    <!-- LEFT SIDE (UNCHANGED) -->
-    <div class="rv d1">
-      <div style="font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:#F97316;margin-bottom:24px;">
-        Get in touch
-      </div>
+    <div class="ct-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;">
 
-      <h2
-        style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.8vw,3.6rem);line-height:1.0;letter-spacing:-.035em;color:#fff;margin-bottom:26px;">
-        Let's grow your<br>café or hotel <em style="font-style:italic;color:rgba(255,255,255,.25);">digitally.</em>
-      </h2>
-
-      <p style="font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.33);max-width:380px;margin-bottom:52px;">
-        We help cafés and hotels increase visibility, attract more customers and drive consistent bookings through digital marketing.
-      </p>
-
-      <div>
-        <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-            Email</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.48);">hello@youragency.com</div>
+      <!-- LEFT SIDE (UNCHANGED) -->
+      <div class="rv d1">
+        <div style="font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:#F97316;margin-bottom:24px;">
+          Get in touch
         </div>
 
-        <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-            Based in</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Bangalore · India</div>
-        </div>
+        <h2
+          style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.8vw,3.6rem);line-height:1.0;letter-spacing:-.035em;color:#fff;margin-bottom:26px;">
+          Let's grow your<br>café or hotel <em style="font-style:italic;color:rgba(255,255,255,.25);">digitally.</em>
+        </h2>
 
-        <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;">
-          <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-            Response</div>
-          <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Within 24 hours</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT SIDE (REPLACED FORM WITH CTA) -->
-    <div class="rv d2" style="display:flex;flex-direction:column;justify-content:center;gap:28px;">
-
-      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:40px;border-radius:6px;">
-        
-        <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#F97316;margin-bottom:16px;">
-          Start now
-        </div>
-
-        <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;margin-bottom:14px;">
-          Want more customers<br>this month?
-        </div>
-
-        <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:28px;">
-          Skip the forms. Just reach out directly — we’ll understand your business and suggest what actually works.
+        <p style="font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.33);max-width:380px;margin-bottom:52px;">
+          We help cafés and hotels increase visibility, attract more customers and drive consistent bookings through
+          digital marketing.
         </p>
 
-        <!-- CTA BUTTONS -->
-        <div style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <div
+            style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div
+              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
+              Email</div>
+            <div style="font-size:.86rem;color:rgba(255,255,255,.48);">hello@youragency.com</div>
+          </div>
 
-          <a href="https://wa.me/918618966567" target="_blank"
-            style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#f47040;color:#000;padding:14px;border-radius:2px;font-weight:600;">
-            WhatsApp us →
-          </a>
+          <div
+            style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div
+              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
+              Based in</div>
+            <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Bangalore · India</div>
+          </div>
 
-          <a href="tel:+918618966567"
-            style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#000;padding:14px;border-radius:2px;font-weight:600;">
-            Call now →
-          </a>
-
-          <a href="mailto:hello@youragency.com"
-            style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px;border-radius:2px;">
-            Send email →
-          </a>
-
+          <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;">
+            <div
+              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
+              Response</div>
+            <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Within 24 hours</div>
+          </div>
         </div>
       </div>
 
-      <!-- TRUST LINE -->
-      <div style="font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.6;">
-        Trusted by cafés, restaurants & hospitality brands across Bangalore.
+      <!-- RIGHT SIDE (REPLACED FORM WITH CTA) -->
+      <div class="rv d2" style="display:flex;flex-direction:column;justify-content:center;gap:28px;">
+
+        <div
+          style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:40px;border-radius:6px;">
+
+          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#F97316;margin-bottom:16px;">
+            Start now
+          </div>
+
+          <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;margin-bottom:14px;">
+            Want more customers<br>this month?
+          </div>
+
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:28px;">
+            Skip the forms. Just reach out directly — we’ll understand your business and suggest what actually works.
+          </p>
+
+          <!-- CTA BUTTONS -->
+          <div style="display:flex;flex-direction:column;gap:12px;">
+
+            <a href="https://wa.me/918618966567" target="_blank"
+              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#f47040;color:#000;padding:14px;border-radius:2px;font-weight:600;">
+              WhatsApp us →
+            </a>
+
+            <a href="tel:+918618966567"
+              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#000;padding:14px;border-radius:2px;font-weight:600;">
+              Call now →
+            </a>
+
+            <a href="mailto:hello@youragency.com"
+              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px;border-radius:2px;">
+              Send email →
+            </a>
+
+          </div>
+        </div>
+
+        <!-- TRUST LINE -->
+        <div style="font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.6;">
+          Trusted by cafés, restaurants & hospitality brands across Bangalore.
+        </div>
+
       </div>
 
     </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- FOOTER -->
   <footer
@@ -969,6 +1209,49 @@
   </footer>
 
   <script>
+    /* MOBILE MENU TOGGLE */
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+
+      if (menuOpen) {
+        mobileMenu.style.right = "0";
+        menuBtn.classList.add('active'); // 🔥 make X
+      } else {
+        mobileMenu.style.right = "-100%";
+        menuBtn.classList.remove('active'); // 🔥 back to hamburger
+      }
+    });
+
+    /* CLOSE MENU ON LINK CLICK */
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.style.right = "-100%";
+        menuBtn.classList.remove('active');
+        menuOpen = false;
+      });
+    });
+
+    /* AUTO CLOSE ON SCREEN RESIZE */
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 960) {
+        mobileMenu.style.right = "-100%";
+        menuBtn.classList.remove('active');
+        menuOpen = false;
+      }
+    });
+
+    /* CLOSE MENU ON CLICK */
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.style.right = "-100%";
+        menuOpen = false;
+      });
+    });
     /* CURSOR */
     const cdot = document.getElementById('cdot'), cring = document.getElementById('cring');
     let mx = 0, my = 0, rx = 0, ry = 0;
