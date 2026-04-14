@@ -117,6 +117,21 @@
       color: #fff;
     }
 
+    /* Default (top) */
+    .logo-text {
+      color: #fff;
+      transition: color .3s;
+    }
+
+    .logo-amp {
+      color: #F97316;
+    }
+
+    /* On scroll */
+    #nav.s .logo-text {
+      color: #000;
+    }
+
     #nav.s>a:first-child {
       color: #000;
     }
@@ -651,8 +666,8 @@
     style="position:fixed;top:0;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:padding .4s,background .4s;">
 
     <a href="#"
-      style="font-family:'DM Serif Display',serif;font-size:1.22rem;color:white;text-decoration:none;letter-spacing:-.01em;">
-      Sunny<span style="color:#F97316;font-weight:400;">&</span>co
+      style="font-family:'DM Serif Display',serif;font-size:1.8rem;text-decoration:none;letter-spacing:-.01em;">
+      <span class="logo-text">Sunny</span><span class="logo-amp">&</span><span class="logo-text">co</span>
     </a>
 
     <div class="navl" style="display:flex;gap:34px;">
