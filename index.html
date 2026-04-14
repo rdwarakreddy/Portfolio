@@ -7,9 +7,7 @@
   <title>Sunny&co — Digital Marketing Agency</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
@@ -17,11 +15,7 @@
       theme: {
         extend: {
           colors: {
-            orange: {
-              DEFAULT: '#F97316',
-              light: '#FB923C',
-              dark: '#EA6C00',
-            }
+            orange: { DEFAULT: '#F97316', light: '#FB923C', dark: '#EA6C00' }
           },
           fontFamily: {
             serif: ['"DM Serif Display"', 'serif'],
@@ -32,18 +26,8 @@
     }
   </script>
   <style>
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       background: #fff;
       color: #000;
@@ -53,619 +37,200 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ================= NAV FIX ================= */
-
-    /* Default nav links (top - dark bg) */
-    .navl a {
-      color: #fff;
-      font-weight: 400;
-      transition: all 0.2s ease;
-    }
-
-    /* DEFAULT (top - dark background) */
-    .navbtn {
-      font-size: .74rem;
-      font-weight: 500;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, .4);
-      padding: 9px 24px;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-
-    /* HOVER (top) */
-    .navbtn:hover {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-    }
-
-    /* SCROLLED STATE */
-    #nav.s .navbtn {
-      color: #000;
-      border: 1px solid rgba(0, 0, 0, .2);
-      background: transparent;
-    }
-
-    /* HOVER WHEN SCROLLED */
-    #nav.s .navbtn:hover {
-      background: #000;
-      color: #fff;
-      border-color: #000;
-    }
-
-    /* Hover */
-    .navl a:hover {
-      font-weight: 700;
-    }
-
-    /* Scrolled navbar */
-    #nav.s .navl a {
-      color: #000;
-    }
-
-    /* Hover when scrolled */
-    #nav.s .navl a:hover {
-      font-weight: 800;
-    }
-
-    /* Logo color switch */
-    #nav>a:first-child {
-      color: #fff;
-    }
-
-    /* Default (top) */
-    .logo-text {
-      color: #fff;
-      transition: color .3s;
-    }
-
-    .logo-amp {
-      color: #F97316;
-    }
-
-    /* On scroll */
-    #nav.s .logo-text {
-      color: #000;
-    }
-
-    #nav.s>a:first-child {
-      color: #000;
-    }
-
-    /* ================= CURSOR ================= */
-
+    /* ===== CURSOR ===== */
     #cdot {
-      position: fixed;
-      width: 5px;
-      height: 5px;
-      background: #F97316;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
+      position: fixed; width: 5px; height: 5px;
+      background: #F97316; border-radius: 50%;
+      pointer-events: none; z-index: 9999;
       transform: translate(-50%, -50%);
     }
-
     #cring {
-      position: fixed;
-      width: 26px;
-      height: 26px;
-      border: 1px solid rgba(0, 0, 0, .28);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
+      position: fixed; width: 26px; height: 26px;
+      border: 1px solid rgba(0,0,0,.28); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
       transform: translate(-50%, -50%);
       transition: width .3s, height .3s, border-color .25s, opacity .3s;
       opacity: .38;
     }
+    body.hl #cdot { opacity: 0; }
+    body.hl #cring { width: 38px; height: 38px; border-color: #F97316; opacity: .55; }
 
-    body.hl #cdot {
-      opacity: 0;
+    /* ===== PROGRESS ===== */
+    #pbar { position: fixed; top: 0; left: 0; height: 2px; background: #F97316; z-index: 999; width: 0; }
+
+    /* ===== NAV ===== */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 700;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 60px;
+      transition: padding .4s, background .4s;
     }
-
-    body.hl #cring {
-      width: 38px;
-      height: 38px;
-      border-color: #F97316;
-      opacity: .55;
-    }
-
-    /* ================= PROGRESS ================= */
-
-    #pbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: #F97316;
-      z-index: 999;
-      width: 0;
-    }
-
-    /* ================= NAV SCROLLED ================= */
-
     #nav.s {
       padding-top: 14px !important;
       padding-bottom: 14px !important;
-      background: rgba(255, 255, 255, .95) !important;
+      background: rgba(255,255,255,.95) !important;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, .08);
+      border-bottom: 1px solid rgba(0,0,0,.08);
     }
 
-    /* ================= HERO ================= */
+    /* Logo */
+    .logo-text { color: #fff; transition: color .3s; }
+    .logo-amp { color: #F97316; }
+    #nav.s .logo-text { color: #000; }
 
-    #hcv {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      opacity: .55;
+    /* Nav links */
+    .navl a {
+      font-size: .78rem; text-decoration: none;
+      letter-spacing: .03em; color: #fff;
+      font-weight: 400; transition: color .2s, font-weight .2s;
     }
+    .navl a:hover { font-weight: 700; }
+    #nav.s .navl a { color: #000; }
+    #nav.s .navl a:hover { font-weight: 800; }
 
-    .hero-h1 span {
-      display: block;
-      overflow: hidden;
+    /* Nav button */
+    .navbtn {
+      font-size: .74rem; font-weight: 500;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: #fff; border: 1px solid rgba(255,255,255,.4);
+      padding: 9px 24px; border-radius: 2px;
+      text-decoration: none; transition: all .25s ease;
     }
+    .navbtn:hover { background: #fff; color: #000; border-color: #fff; }
+    #nav.s .navbtn { color: #000; border: 1px solid rgba(0,0,0,.2); background: transparent; }
+    #nav.s .navbtn:hover { background: #000; color: #fff; border-color: #000; }
 
-    .hero-h1 span i {
-      display: block;
-      transform: translateY(106%);
-      opacity: 0;
-      font-style: inherit;
+    /* Mobile menu button — hidden on desktop */
+    #menuBtn { display: none; cursor: pointer; z-index: 1000; position: relative; }
+    #menuBtn .bar {
+      width: 22px; height: 2px;
+      background: #fff; margin: 5px 0;
+      transition: all .3s ease;
     }
+    #nav.s #menuBtn .bar { background: #000; }
+    #menuBtn.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #menuBtn.active .bar:nth-child(2) { opacity: 0; }
+    #menuBtn.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #menuBtn.active .bar { background: #fff; }
 
-    .hero-h1 span:nth-child(1) i {
-      animation: sUp .9s cubic-bezier(.16, 1, .3, 1) .25s forwards;
+    /* Mobile menu overlay */
+    #mobileMenu {
+      position: fixed; top: 0; right: -100%;
+      width: 100%; height: 100vh;
+      background: #000; z-index: 999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 28px; transition: right .4s ease;
     }
-
-    .hero-h1 span:nth-child(2) i {
-      animation: sUp .9s cubic-bezier(.16, 1, .3, 1) .42s forwards;
-      font-style: italic;
-      color: #F97316;
+    #mobileMenu a {
+      color: #fff; font-size: 1rem;
+      letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
     }
+    #mobileMenu a:hover { color: #F97316; }
 
-    .hero-h1 span:nth-child(3) i {
-      animation: sUp .9s cubic-bezier(.16, 1, .3, 1) .58s forwards;
-    }
+    /* ===== HERO ===== */
+    #hcv { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; opacity: .55; }
 
-    .hero-r {
-      opacity: 0;
-      animation: fIn .9s .9s forwards;
-    }
+    .hero-h1 span { display: block; overflow: hidden; }
+    .hero-h1 span i { display: block; transform: translateY(106%); opacity: 0; font-style: inherit; }
+    .hero-h1 span:nth-child(1) i { animation: sUp .9s cubic-bezier(.16,1,.3,1) .25s forwards; }
+    .hero-h1 span:nth-child(2) i { animation: sUp .9s cubic-bezier(.16,1,.3,1) .42s forwards; font-style: italic; color: #F97316; }
+    .hero-h1 span:nth-child(3) i { animation: sUp .9s cubic-bezier(.16,1,.3,1) .58s forwards; }
+    .hero-r { opacity: 0; animation: fIn .9s .9s forwards; }
+    .hero-scroll { opacity: 0; animation: fIn .8s 1.3s forwards; }
 
-    .hero-scroll {
-      opacity: 0;
-      animation: fIn .8s 1.3s forwards;
-    }
+    /* ===== TICKER ===== */
+    .t-track { display: flex; width: max-content; animation: tMove 30s linear infinite; }
+    @keyframes tMove { to { transform: translateX(-50%); } }
 
-    /* ================= ANIMATIONS ================= */
-
-    .hsl {
-      width: 1px;
-      height: 32px;
-      background: rgba(255, 255, 255, .15);
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* ===== SCROLL LINE ===== */
+    .hsl { width: 1px; height: 32px; background: rgba(255,255,255,.15); position: relative; overflow: hidden; }
     .hsl::after {
-      content: '';
-      position: absolute;
-      top: -60%;
-      left: 0;
-      width: 100%;
-      height: 55%;
-      background: #F97316;
+      content: ''; position: absolute; top: -60%; left: 0;
+      width: 100%; height: 55%; background: #F97316;
       animation: lDown 2s 1.8s ease-in-out infinite;
     }
 
-    @keyframes lDown {
-      0% {
-        top: -60%
-      }
+    /* ===== KEYFRAMES ===== */
+    @keyframes lDown { 0% { top: -60% } 100% { top: 130% } }
+    @keyframes sUp { to { transform: translateY(0); opacity: 1; } }
+    @keyframes fIn { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: translateY(0) } }
 
-      100% {
-        top: 130%
-      }
-    }
+    /* ===== REVEAL ===== */
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .rv.on { opacity: 1; transform: none; }
 
-    @keyframes sUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fIn {
-      from {
-        opacity: 0;
-        transform: translateY(16px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    /* ================= TICKER ================= */
-
-    .t-track {
-      display: flex;
-      width: max-content;
-      animation: tMove 30s linear infinite;
-    }
-
-    @keyframes tMove {
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* ================= REVEAL ================= */
-
-    .rv {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .85s cubic-bezier(.16, 1, .3, 1),
-        transform .85s cubic-bezier(.16, 1, .3, 1);
-    }
-
-    .rv.on {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ================= CARDS ================= */
-
-    .sc {
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* ===== SERVICE CARDS ===== */
+    .sc { position: relative; overflow: hidden; }
     .sc::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #F97316;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: #F97316;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
     }
-
-    .sc:hover::after {
-      transform: scaleX(1);
-    }
-
+    .sc:hover::after { transform: scaleX(1); }
+    .svc-card { position: relative; overflow: hidden; }
     .svc-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #F97316;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: #F97316;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    /* ===== CAROUSEL ===== */
+    .carousel { overflow: hidden; position: relative; }
+    .carousel-track { display: flex; gap: 50px; width: max-content; animation: scroll 20s linear infinite; }
+    .carousel-item { flex: 0 0 auto; min-width: 220px; }
+    .carousel-item img { width: 250px; height: 120px; object-fit: contain; opacity: 0.8; transition: all 0.3s ease; }
+    .carousel-item img:hover { opacity: 1; transform: scale(1.05); }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .navl { display: none !important; }
+      .navbtn { display: none !important; }
+      #menuBtn { display: block !important; }
     }
 
-    .svc-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    /* ================= BUTTON ================= */
-
-    .navbtn:hover {
-      background: #000 !important;
-      color: #fff !important;
-    }
-
-    .btn-f:hover {
-      background: #F97316 !important;
-      color: #fff !important;
-    }
-
-    /* ================= CAROUSEL AUTO SCROLL ================= */
-
-    .carousel {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel-track {
-      display: flex;
-      gap: 50px;
-      width: max-content;
-      animation: scroll 20s linear infinite;
-    }
-
-    .carousel-item {
-      flex: 0 0 auto;
-      min-width: 220px;
-    }
-
-    .carousel-item img {
-      width: 250px;
-      height: 120px;
-      object-fit: contain;
-      opacity: 0.8;
-      transition: all 0.3s ease;
-    }
-
-    .carousel-item img:hover {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:960px) {
-      .navl {
-        display: none !important;
-      }
-    }
-/* On scroll */
-    #nav.s .logo-text {
-      color: #000;
-    }
-
-    #nav.s>a:first-child {
-      color: #000;
-    }
-    /* ================= RESPONSIVE FIXES ================= */
-
-    /* Tablet */
     @media (max-width: 1024px) {
-
-      nav {
-        padding: 20px 30px !important;
-      }
-
-      #hero {
-        padding: 0 30px 70px !important;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
-      }
-
-      .hero-r {
-        align-items: flex-start !important;
-        text-align: left !important;
-      }
-
-      .hero-desc {
-        text-align: left !important;
-      }
-
-      #stats {
-        padding: 70px 30px !important;
-      }
-
-      .stats-wrap {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
-      }
-
-      .stats-r {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      #services {
-        padding: 80px 30px !important;
-      }
-
-      .svc-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-
-      #testi {
-        padding: 80px 30px !important;
-      }
-
-      .testi-grid {
-        grid-template-columns: 1fr !important;
-      }
-
-      #clients {
-        padding: 80px 30px !important;
-      }
-
-      .bento {
-        grid-template-columns: repeat(6, 1fr) !important;
-      }
-
-      .bc {
-        grid-column: span 6 !important;
-      }
-
-      #contact {
-        padding: 80px 30px !important;
-      }
-
-      .ct-wrap {
-        grid-template-columns: 1fr !important;
-        gap: 50px !important;
-      }
-
-      footer {
-        padding: 30px !important;
-        flex-direction: column !important;
-        gap: 20px;
-        text-align: center;
-      }
-
-
+      #nav { padding: 20px 30px !important; }
+      #hero { padding: 0 30px 70px !important; }
+      .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .hero-r { align-items: flex-start !important; text-align: left !important; }
+      .hero-desc { text-align: left !important; }
+      #stats { padding: 70px 30px !important; }
+      .stats-wrap { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .stats-r { grid-template-columns: repeat(2, 1fr) !important; }
+      #services { padding: 80px 30px !important; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      #testi { padding: 80px 30px !important; }
+      .testi-grid { grid-template-columns: 1fr !important; }
+      #clients { padding: 80px 30px !important; }
+      #contact { padding: 80px 30px !important; }
+      .ct-wrap { grid-template-columns: 1fr !important; gap: 50px !important; }
+      footer { padding: 30px !important; flex-direction: column !important; gap: 20px; text-align: center; }
     }
 
-    /* Mobile */
     @media (max-width: 640px) {
-      /* On scroll */
-    #nav.s .logo-text {
-      color: #000;
-    }
-
-    #nav.s>a:first-child {
-      color: #000;
-    }
-
-      nav {
-        padding: 16px 20px !important;
-      }
-
-      #hero {
-        padding: 0 20px 60px !important;
-      }
-
-      .hero-scroll {
-        display: none !important;
-      }
-
-      .hero-h1 {
-        font-size: 2.6rem !important;
-      }
-
-      #stats {
-        padding: 60px 20px !important;
-      }
-
-      .stats-r {
-        grid-template-columns: 1fr !important;
-      }
-
-      #services {
-        padding: 60px 20px !important;
-      }
-
-      .svc-grid {
-        grid-template-columns: 1fr !important;
-      }
-
-      #testi {
-        padding: 60px 20px !important;
-      }
-
-      #clients {
-        padding: 60px 20px !important;
-      }
-
-      .bento {
-        grid-template-columns: 1fr !important;
-      }
-
-      .bc {
-        grid-column: span 1 !important;
-      }
-
-      #contact {
-        padding: 60px 20px !important;
-      }
-
-      footer {
-        padding: 24px !important;
-      }
-
-      .ft-lnks {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      /* Disable custom cursor on mobile */
-      body {
-        cursor: auto !important;
-      }
-
-      #cdot,
-      #cring {
-        display: none !important;
-      }
-
-      /* MOBILE MENU */
-      #mobileMenu a {
-        color: #fff;
-        font-size: 1rem;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        text-decoration: none;
-      }
-
-      #mobileMenu a:hover {
-        color: #F97316;
-      }
-
-      /* SHOW MENU BUTTON ON MOBILE */
-      @media(max-width:960px) {
-        #menuBtn {
-          display: block !important;
-        }
-      }
-
-      /* MENU ICON */
-      #menuBtn .bar {
-        width: 22px;
-        height: 2px;
-        background: #fff;
-        margin: 5px 0;
-        transition: all .3s ease;
-      }
-
-      /* ANIMATE TO X */
-      #menuBtn.active .bar:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-
-      #menuBtn.active .bar:nth-child(2) {
-        opacity: 0;
-      }
-
-      #menuBtn.active .bar:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      #menuBtn.active .bar {
-        background: #fff;
-        /* keep visible */
-      }
-
-      /* MENU ICON DEFAULT (top - dark bg) */
-      #menuBtn .bar {
-        background: #fff;
-      }
-
-      /* MENU ICON WHEN SCROLLED */
-      #nav.s #menuBtn .bar {
-        background: #000;
-      }
-
-      .carousel::-webkit-scrollbar {
-        display: none;
-      }
-
-      .carousel {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
+      body { cursor: auto !important; }
+      #cdot, #cring { display: none !important; }
+      #nav { padding: 16px 20px !important; }
+      #hero { padding: 0 20px 60px !important; }
+      .hero-scroll { display: none !important; }
+      .hero-h1 { font-size: 2.6rem !important; }
+      #stats { padding: 60px 20px !important; }
+      .stats-r { grid-template-columns: 1fr !important; }
+      #services { padding: 60px 20px !important; }
+      .svc-grid { grid-template-columns: 1fr !important; }
+      #testi { padding: 60px 20px !important; }
+      #clients { padding: 60px 20px !important; }
+      #contact { padding: 60px 20px !important; }
+      footer { padding: 24px !important; }
+      .ft-lnks { flex-wrap: wrap; justify-content: center; }
+      .carousel::-webkit-scrollbar { display: none; }
+      .carousel { -ms-overflow-style: none; scrollbar-width: none; }
     }
   </style>
 </head>
@@ -677,98 +242,79 @@
   <div id="pbar"></div>
 
   <!-- NAV -->
-  <nav id="nav"
-    style="position:fixed;top:0;left:0;right:0;z-index:700;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:padding .4s,background .4s;">
-
-    <a href="#"
-      style="font-family:'DM Serif Display',serif;font-size:1.8rem;text-decoration:none;letter-spacing:-.01em;">
+  <nav id="nav">
+    <a href="#" style="font-family:'DM Serif Display',serif;font-size:1.8rem;text-decoration:none;letter-spacing:-.01em;">
       <span class="logo-text">Sunny</span><span class="logo-amp">&</span><span class="logo-text">co</span>
     </a>
 
     <div class="navl" style="display:flex;gap:34px;">
-      <a href="#stats" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-        Results
-      </a>
-
-      <a href="#services" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-        Services
-      </a>
-
-      <a href="#testi" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-        Testimonials
-      </a>
-
-      <a href="#clients" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-        Our Clients
-      </a>
-
-      <a href="#contact" style="font-size:.78rem;text-decoration:none;letter-spacing:.03em;transition:color .2s">
-        Get in Touch
-      </a>
-    </div>
-
-    <a class="navbtn" href="#contact">
-      Grow My Business
-    </a>
-    </a>
-    <!-- MOBILE MENU BUTTON -->
-    <div id="menuBtn" style="display:none;cursor:pointer;z-index:1000;position:relative;">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu"
-      style="position:fixed;top:0;right:-100%;width:100%;height:100vh;background:#000;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:right .4s ease;">
-
       <a href="#stats">Results</a>
       <a href="#services">Services</a>
       <a href="#testi">Testimonials</a>
       <a href="#clients">Our Clients</a>
       <a href="#contact">Get in Touch</a>
-
     </div>
 
+    <a class="navbtn" href="#contact">Grow My Business</a>
+
+    <div id="menuBtn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <div id="mobileMenu">
+
+  <!-- CLOSE BUTTON -->
+  <div id="closeMenu" style="position:absolute;top:24px;right:24px;cursor:pointer;">
+    <!-- <div style="width:24px;height:2px;background:#fff;transform:rotate(45deg);position:absolute;"></div>
+    <div style="width:24px;height:2px;background:#fff;transform:rotate(-45deg);position:absolute;"></div> -->
+  </div>
+
+  <!-- NAV LINKS -->
+  <a href="#stats">Results</a>
+  <a href="#services">Services</a>
+  <a href="#testi">Testimonials</a>
+  <a href="#clients">Our Clients</a>
+  <a href="#contact">Get in Touch</a>
+
+  <!-- CTA BUTTON -->
+  <a href="#contact" style="
+    margin-top:20px;
+    font-size:.75rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    background:#F97316;
+    color:#fff;
+    padding:14px 28px;
+    border-radius:2px;
+    text-decoration:none;
+    font-weight:600;
+  ">
+    Grow My Business
+  </a>
+
+</div>
   </nav>
 
   <!-- HERO -->
-  <section id="hero"
-    style="position:relative;min-height:100vh;background:#000;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 92px;overflow:hidden;">
+  <section id="hero" style="position:relative;min-height:100vh;background:#000;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 92px;overflow:hidden;">
     <canvas id="hcv"></canvas>
-    <div class="hero-scroll"
-      style="position:absolute;bottom:92px;right:60px;z-index:2;display:flex;align-items:center;gap:10px;font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);">
+    <div class="hero-scroll" style="position:absolute;bottom:92px;right:60px;z-index:2;display:flex;align-items:center;gap:10px;font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);">
       <div class="hsl"></div>
       Scroll
     </div>
-    <div class="hero-grid"
-      style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;gap:48px;width:100%;">
+    <div class="hero-grid" style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;gap:48px;width:100%;">
       <div>
-        <!-- <div class="h-eyebrow"
-          style="display:inline-flex;align-items:center;gap:12px;font-size:.63rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.27);margin-bottom:38px;">
-          Digital agency · Est. 2012</div> -->
-        <h1 class="hero-h1"
-          style="font-family:'DM Serif Display',serif;font-size:clamp(3.4rem,5.8vw,5.6rem);line-height:.95;letter-spacing:-.035em;color:#fff;">
+        <h1 class="hero-h1" style="font-family:'DM Serif Display',serif;font-size:clamp(3.4rem,5.8vw,5.6rem);line-height:.95;letter-spacing:-.035em;color:#fff;">
           <span><i>I craft</i></span>
           <span><i>brands that</i></span>
           <span><i>endure.</i></span>
         </h1>
       </div>
       <div class="hero-r" style="display:flex;flex-direction:column;align-items:flex-end;gap:40px;">
-        <p class="hero-desc"
-          style="font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.55);max-width:310px;text-align:right;">A
-          boutique studio for purposeful digital work — branding, web, and strategy built for companies that want to
-          matter for decades, not quarters.</p>
-        <div class="hero-ctas" style="display:flex;flex-direction:column;align-items:flex-end;gap:14px;">
-          <a href="#clients" class="btn-f"
-            style="display:inline-flex;align-items:center;gap:9px;font-size:.75rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:#F97316;color:#fff;padding:15px 34px;border-radius:2px;text-decoration:none;transition:background .25s,transform .2s;">View
-            our work →</a>
-          <br>
-          <a href="#contact"
-            style="font-size:.74rem;letter-spacing:.04em;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:2px;transition:color .25s;"
-            onmouseover="this.style.color='rgba(255,255,255,.7)'"
-            onmouseout="this.style.color='rgba(255,255,255,.35)'"></a>
-        </div>
+        <p class="hero-desc" style="font-size:.9rem;line-height:1.88;color:rgba(255,255,255,.55);max-width:310px;text-align:right;">A boutique studio for purposeful digital work — branding, web, and strategy built for companies that want to matter for decades, not quarters.</p>
+        <a href="#clients" style="display:inline-flex;align-items:center;gap:9px;font-size:.75rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:#F97316;color:#fff;padding:15px 34px;border-radius:2px;text-decoration:none;transition:background .25s;">View our work →</a>
       </div>
     </div>
   </section>
@@ -782,68 +328,33 @@
   <section id="stats" style="background:#f5f5f5;padding:88px 60px;border-bottom:1px solid rgba(0,0,0,.07);">
     <div class="stats-wrap" style="display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:center;">
       <div class="rv">
-        <h2
-          style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;line-height:1.08;color:#000;margin-bottom:16px;">
-          Numbers that<br><em style="font-style:italic;color:rgba(0,0,0,.3);">speak for</em><br>themselves</h2>
-        <p style="font-size:.85rem;line-height:1.8;color:rgba(0,0,0,.5);max-width:300px;">
-          Delivering consistent growth and results for brands across industries with a strong digital-first approach.
-        </p>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;line-height:1.08;color:#000;margin-bottom:16px;">Numbers that<br><em style="font-style:italic;color:rgba(0,0,0,.3);">speak for</em><br>themselves</h2>
+        <p style="font-size:.85rem;line-height:1.8;color:rgba(0,0,0,.5);max-width:300px;">Delivering consistent growth and results for brands across industries with a strong digital-first approach.</p>
       </div>
-
       <div class="stats-r" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
 
-        <div class="sc rv d1"
-          style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;"
-          onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
-          <div
-            style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">
-            2<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
-          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Years active
-          </div>
-          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">
-            Growing steadily with impactful campaigns and strong client relationships.
-          </div>
+        <div class="sc rv" style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
+          <div style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">2<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
+          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Years active</div>
+          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">Growing steadily with impactful campaigns and strong client relationships.</div>
         </div>
 
-        <div class="sc rv d2"
-          style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;"
-          onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
-          <div
-            style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">
-            20<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
-          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Clients
-          </div>
-          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">
-            Trusted by businesses across multiple industries for digital growth.
-          </div>
+        <div class="sc rv" style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
+          <div style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">20<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
+          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Clients</div>
+          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">Trusted by businesses across multiple industries for digital growth.</div>
         </div>
 
-        <div class="sc rv d3"
-          style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;"
-          onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
-          <div
-            style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">
-            3<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
-          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">
-            International Clients
-          </div>
-          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">
-            Expanding globally with clients from international markets.
-          </div>
+        <div class="sc rv" style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
+          <div style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">3<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">+</sup></div>
+          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">International Clients</div>
+          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">Expanding globally with clients from international markets.</div>
         </div>
 
-        <div class="sc rv d4"
-          style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;"
-          onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
-          <div
-            style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">
-            98<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">%</sup></div>
-          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Retention
-            Rate
-          </div>
-          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">
-            Strong client satisfaction leading to long-term partnerships.
-          </div>
+        <div class="sc rv" style="padding:32px 28px;border-left:1px solid rgba(0,0,0,.08);cursor:default;transition:background .3s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background=''">
+          <div style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.2vw,3rem);color:#000;line-height:1;margin-bottom:8px;">98<sup style="font-family:'DM Sans',sans-serif;font-size:.8rem;color:#F97316;">%</sup></div>
+          <div style="font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.4);">Retention Rate</div>
+          <div style="font-size:.76rem;line-height:1.6;color:rgba(0,0,0,.5);margin-top:10px;">Strong client satisfaction leading to long-term partnerships.</div>
         </div>
 
       </div>
@@ -853,184 +364,73 @@
   <!-- SERVICES -->
   <section id="services" style="background:#fff;padding:110px 60px;">
     <div class="svc-hdr rv" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;">
-      <h2
-        style="font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);letter-spacing:-.03em;line-height:1.05;color:#000;">
-        What we<br>do <em style="font-style:italic;color:rgba(0,0,0,.28);">best</em></h2>
-      <p class="svc-note"
-        style="font-size:.82rem;line-height:1.75;color:rgba(0,0,0,.5);max-width:260px;text-align:right;">
-        Digital strategies tailored for cafés and hotels to increase footfall, bookings and repeat customers.
-      </p>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);letter-spacing:-.03em;line-height:1.05;color:#000;">What we<br>do <em style="font-style:italic;color:rgba(0,0,0,.28);">best</em></h2>
+      <p style="font-size:.82rem;line-height:1.75;color:rgba(0,0,0,.5);max-width:260px;text-align:right;">Digital strategies tailored for cafés and hotels to increase footfall, bookings and repeat customers.</p>
     </div>
 
     <div class="svc-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.1);">
 
-      <div class="svc-card rv d1"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 3v18M3 12h18" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          01</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Local SEO & Google Ranking</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Get discovered when customers search “cafes near me” or “best hotels” with optimized Google listings and local
-          SEO.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">01</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Local SEO & Google Ranking</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Get discovered when customers search "cafes near me" or "best hotels" with optimized Google listings and local SEO.</div>
       </div>
 
-      <div class="svc-card rv d2"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <rect x="3" y="3" width="18" height="14" rx="2" />
-            <path d="M7 21h10M12 17v4" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          02</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Social Media Management</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Build a strong Instagram presence with reels, food visuals and daily content that attracts real customers.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10M12 17v4"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">02</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Social Media Management</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Build a strong Instagram presence with reels, food visuals and daily content that attracts real customers.</div>
       </div>
 
-      <div class="svc-card rv d3"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <path d="M2 20h20M12 4v12M6 10l6-6 6 6" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          03</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Paid Ads (Meta & Google)</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Run targeted ads to drive more table bookings, online orders and walk-ins from nearby audiences.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><path d="M2 20h20M12 4v12M6 10l6-6 6 6"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">03</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Paid Ads (Meta & Google)</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Run targeted ads to drive more table bookings, online orders and walk-ins from nearby audiences.</div>
       </div>
 
-      <div class="svc-card rv d1"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <polygon points="5 3 19 12 5 21 5 3" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          04</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Food Photography & Reels</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          High-quality photos and viral reels that make your dishes irresistible and boost engagement.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">04</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Food Photography & Reels</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">High-quality photos and viral reels that make your dishes irresistible and boost engagement.</div>
       </div>
 
-      <div class="svc-card rv d2"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          05</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Reviews & Reputation Management</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Improve ratings on Google & Zomato, respond to reviews and build strong customer trust online.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">05</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Reviews & Reputation Management</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Improve ratings on Google & Zomato, respond to reviews and build strong customer trust online.</div>
       </div>
 
-      <div class="svc-card rv d3"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          06</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Offers & Campaign Marketing</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Promote weekend offers, events and seasonal menus to increase repeat visits and customer loyalty.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">06</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Offers & Campaign Marketing</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Promote weekend offers, events and seasonal menus to increase repeat visits and customer loyalty.</div>
       </div>
 
-      <div class="svc-card rv d1"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <rect x="3" y="4" width="18" height="16" rx="2" />
-            <path d="M7 8h10M7 12h6M7 16h8" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          07</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          CRM Tools & Automation</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Manage customer data, automate follow-ups and improve retention with smart CRM solutions tailored for your
-          business.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">07</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">CRM Tools & Automation</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Manage customer data, automate follow-ups and improve retention with smart CRM solutions tailored for your business.</div>
       </div>
 
-      <div class="svc-card rv d2"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <path d="M4 4h16v6H4zM4 14h10v6H4zM16 14h4v6h-4z" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          08</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          ERP Solutions</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          Streamline operations, inventory, billing and reporting with customized ERP systems for efficient business
-          management.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 4h16v6H4zM4 14h10v6H4zM16 14h4v6h-4z"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">08</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">ERP Solutions</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">Streamline operations, inventory, billing and reporting with customized ERP systems for efficient business management.</div>
       </div>
 
-      <div class="svc-card rv d3"
-        style="background:#fff;padding:44px 38px 40px;position:relative;overflow:hidden;transition:background .3s;"
-        onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
-        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24"
-            style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;">
-            <path d="M12 2v20M5 7h14M5 17h14" />
-          </svg></div>
-        <div
-          style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">
-          09</div>
-        <div
-          style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">
-          Robotics Classes & School Collaboration</div>
-        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">
-          We conduct robotics training for students and collaborate with schools to deliver hands-on learning and
-          innovation programs.
-        </div>
+      <div class="svc-card rv" style="background:#fff;padding:44px 38px 40px;transition:background .3s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='#fff'">
+        <div style="margin-bottom:26px;"><svg viewBox="0 0 24 24" style="width:25px;height:25px;stroke:#F97316;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 2v20M5 7h14M5 17h14"/></svg></div>
+        <div style="font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:10px;">09</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.42rem;letter-spacing:-.02em;color:#000;margin-bottom:14px;">Robotics Classes & School Collaboration</div>
+        <div style="font-size:.8rem;line-height:1.82;color:rgba(0,0,0,.5);">We conduct robotics training for students and collaborate with schools to deliver hands-on learning and innovation programs.</div>
       </div>
 
     </div>
@@ -1038,45 +438,19 @@
 
   <!-- TESTIMONIALS -->
   <section id="testi" style="background:#000;padding:110px 60px;">
-    <div class="testi-hdr rv"
-      style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px;">
-      <h2
-        style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;color:#fff;max-width:380px;">
-        Clients on<br>working <em style="font-style:italic;color:rgba(255,255,255,.25);">with us</em></h2>
-      <div style="display:flex;gap:10px;">
-        <button class="tnb"
-          style="width:38px;height:38px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:none;color:rgba(255,255,255,.4);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s,background .25s;"
-          onmouseover="this.style.borderColor='#F97316';this.style.color='#fff';this.style.background='rgba(249,115,22,.15)'"
-          onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)';this.style.background='none'">←</button>
-        <button class="tnb"
-          style="width:38px;height:38px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:none;color:rgba(255,255,255,.4);font-size:.9rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s,background .25s;"
-          onmouseover="this.style.borderColor='#F97316';this.style.color='#fff';this.style.background='rgba(249,115,22,.15)'"
-          onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)';this.style.background='none'">→</button>
-      </div>
+    <div class="testi-hdr rv" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:72px;">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;color:#fff;max-width:380px;">Clients on<br>working <em style="font-style:italic;color:rgba(255,255,255,.25);">with us</em></h2>
     </div>
 
     <div class="testi-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
 
-      <div class="tc rv d1"
-        style="background:rgba(249,115,22,.09);border:1px solid rgba(249,115,22,.22);border-radius:4px;padding:38px 34px;transition:background .3s,border-color .3s;"
-        onmouseover="this.style.background='rgba(249,115,22,.14)'"
-        onmouseout="this.style.background='rgba(249,115,22,.09)'">
+      <div class="rv" style="background:rgba(249,115,22,.09);border:1px solid rgba(249,115,22,.22);border-radius:4px;padding:38px 34px;transition:background .3s;" onmouseover="this.style.background='rgba(249,115,22,.14)'" onmouseout="this.style.background='rgba(249,115,22,.09)'">
         <div style="display:flex;gap:4px;margin-bottom:22px;">
-          <span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
+          <span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
         </div>
-        <p
-          style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:#fff;margin-bottom:30px;">
-          <span style="color:#F97316;font-size:1.3em;line-height:0;vertical-align:-.2em;margin-right:3px;"></span>
-          Working with the team helped us improve how we present our café online. From better content to consistent
-          posting, we started seeing more walk-ins and engagement within a few months.
-        </p>
-        <div
-          style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);">
-          <div
-            style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#F97316,#ea6c00);">
-            A</div>
+        <p style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:#fff;margin-bottom:30px;">Working with the team helped us improve how we present our café online. From better content to consistent posting, we started seeing more walk-ins and engagement within a few months.</p>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);">
+          <div style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#F97316,#ea6c00);">A</div>
           <div>
             <div style="font-size:.8rem;font-weight:500;color:rgba(255,255,255,.8);margin-bottom:2px;">Anusha</div>
             <div style="font-size:.71rem;color:rgba(255,255,255,.3);">Co Founder · Green Bean Coffee</div>
@@ -1084,26 +458,13 @@
         </div>
       </div>
 
-      <div class="tc rv d2"
-        style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:38px 34px;transition:background .3s,border-color .3s;"
-        onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.12)'"
-        onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)'">
+      <div class="rv" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:38px 34px;transition:background .3s,border-color .3s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)'">
         <div style="display:flex;gap:4px;margin-bottom:22px;">
-          <span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
+          <span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
         </div>
-        <p
-          style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:rgba(255,255,255,.7);margin-bottom:30px;">
-          <span style="color:#F97316;font-size:1.3em;line-height:0;vertical-align:-.2em;margin-right:3px;"></span>
-          The digital campaigns and ads made a noticeable difference for our restaurant. We were able to reach more
-          local customers and saw a steady increase in weekend reservations.
-        </p>
-        <div
-          style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);">
-          <div
-            style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#333,#111);">
-            N</div>
+        <p style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:rgba(255,255,255,.7);margin-bottom:30px;">The digital campaigns and ads made a noticeable difference for our restaurant. We were able to reach more local customers and saw a steady increase in weekend reservations.</p>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);">
+          <div style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#333,#111);">N</div>
           <div>
             <div style="font-size:.8rem;font-weight:500;color:rgba(255,255,255,.78);margin-bottom:2px;">Nanda</div>
             <div style="font-size:.71rem;color:rgba(255,255,255,.28);">Co Founder · Hot Spice Thai Cuisine</div>
@@ -1111,29 +472,15 @@
         </div>
       </div>
 
-      <div class="tc rv d3"
-        style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:38px 34px;transition:background .3s,border-color .3s;"
-        onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.12)'"
-        onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)'">
+      <div class="rv" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:38px 34px;transition:background .3s,border-color .3s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.03)';this.style.borderColor='rgba(255,255,255,.07)'">
         <div style="display:flex;gap:4px;margin-bottom:22px;">
-          <span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span
-            style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
+          <span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span><span style="color:#F97316;font-size:.74rem;">★</span>
         </div>
-        <p
-          style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:rgba(255,255,255,.7);margin-bottom:30px;">
-          <span style="color:#F97316;font-size:1.3em;line-height:0;vertical-align:-.2em;margin-right:3px;"></span>
-          Their approach to content and branding helped us showcase our desserts much better online. We’ve seen improved
-          engagement and more customers discovering us through social media.
-        </p>
-        <div
-          style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);">
-          <div
-            style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#444,#222);">
-            C</div>
+        <p style="font-family:'DM Serif Display',serif;font-size:1.08rem;font-style:italic;line-height:1.65;letter-spacing:-.01em;color:rgba(255,255,255,.7);margin-bottom:30px;">Their approach to content and branding helped us showcase our desserts much better online. We've seen improved engagement and more customers discovering us through social media.</p>
+        <div style="display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.07);">
+          <div style="width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.88rem;color:#fff;background:linear-gradient(135deg,#444,#222);">C</div>
           <div>
-            <div style="font-size:.8rem;font-weight:500;color:rgba(255,255,255,.78);margin-bottom:2px;">Chenna Korivi
-            </div>
+            <div style="font-size:.8rem;font-weight:500;color:rgba(255,255,255,.78);margin-bottom:2px;">Chenna Korivi</div>
             <div style="font-size:.71rem;color:rgba(255,255,255,.28);">Co Founder · Cremeverse</div>
           </div>
         </div>
@@ -1142,253 +489,136 @@
     </div>
   </section>
 
-  <!-- CLIENTS BENTO -->
+  <!-- CLIENTS CAROUSEL -->
   <section id="clients" style="background:#f5f5f5;padding:110px 60px;overflow:hidden;">
-
-    <!-- Header -->
     <div class="cl-hdr rv" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;">
-      <h2
-        style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;color:#000;">
-        Companies we've<br>
-        <em style="font-style:italic;color:rgba(0,0,0,.3);">built with</em>
-      </h2>
-
-      <p style="font-size:.82rem;color:rgba(0,0,0,.5);max-width:240px;text-align:right;line-height:1.7;">
-        Cafés, restaurants and hospitality brands growing digitally with us.
-      </p>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,2.8rem);letter-spacing:-.03em;color:#000;">Companies we've<br><em style="font-style:italic;color:rgba(0,0,0,.3);">built with</em></h2>
+      <p style="font-size:.82rem;color:rgba(0,0,0,.5);max-width:240px;text-align:right;line-height:1.7;">Cafés, restaurants and hospitality brands growing digitally with us.</p>
     </div>
 
-    <!-- Carousel -->
     <div class="carousel">
       <div class="carousel-track">
-
-        <!-- ORIGINAL -->
-        <div class="carousel-item">
-          <img src="Images/GBC.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/HSTC.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/Cremeverse.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/IB Cricket.svg" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/UFR.webp" alt="">
-        </div>
-        <div class="carousel-item">
-          <img src="Images/RG.jpeg" alt="">
-        </div>
-
-        <!-- DUPLICATE (for infinite loop) -->
-        <div class="carousel-item">
-          <img src="Images/GBC.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/HSTC.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/Cremeverse.png" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/IB Cricket.svg" alt="">
-        </div>
-
-        <div class="carousel-item">
-          <img src="Images/UFR.webp" alt="">
-        </div>
-
+        <div class="carousel-item"><img src="Images/GBC.png" alt="Green Bean Coffee"></div>
+        <div class="carousel-item"><img src="Images/HSTC.png" alt="Hot Spice Thai Cuisine"></div>
+        <div class="carousel-item"><img src="Images/Cremeverse.png" alt="Cremeverse"></div>
+        <div class="carousel-item"><img src="Images/IB Cricket.svg" alt="IB Cricket"></div>
+        <div class="carousel-item"><img src="Images/UFR.webp" alt="UFR"></div>
+        <div class="carousel-item"><img src="Images/RG.jpeg" alt="RG"></div>
+        <!-- Duplicate for infinite loop -->
+        <div class="carousel-item"><img src="Images/GBC.png" alt="Green Bean Coffee"></div>
+        <div class="carousel-item"><img src="Images/HSTC.png" alt="Hot Spice Thai Cuisine"></div>
+        <div class="carousel-item"><img src="Images/Cremeverse.png" alt="Cremeverse"></div>
+        <div class="carousel-item"><img src="Images/IB Cricket.svg" alt="IB Cricket"></div>
+        <div class="carousel-item"><img src="Images/UFR.webp" alt="UFR"></div>
+        <div class="carousel-item"><img src="Images/RG.jpeg" alt="RG"></div>
       </div>
     </div>
-
   </section>
 
   <!-- CONTACT -->
   <section id="contact" style="background:#000;padding:110px 60px;">
     <div class="ct-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;">
 
-      <!-- LEFT SIDE (UNCHANGED) -->
-      <div class="rv d1">
-        <div style="font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:#F97316;margin-bottom:24px;">
-          Get in touch
-        </div>
-
-        <h2
-          style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.8vw,3.6rem);line-height:1.0;letter-spacing:-.035em;color:#fff;margin-bottom:26px;">
-          Let's grow your<br>café or hotel <em style="font-style:italic;color:rgba(255,255,255,.25);">digitally.</em>
-        </h2>
-
-        <p style="font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.33);max-width:380px;margin-bottom:52px;">
-          We help cafés and hotels increase visibility, attract more customers and drive consistent bookings through
-          digital marketing.
-        </p>
-
+      <div class="rv">
+        <div style="font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:#F97316;margin-bottom:24px;">Get in touch</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,3.8vw,3.6rem);line-height:1.0;letter-spacing:-.035em;color:#fff;margin-bottom:26px;">Let's grow your<br>café or hotel <em style="font-style:italic;color:rgba(255,255,255,.25);">digitally.</em></h2>
+        <p style="font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.33);max-width:380px;margin-bottom:52px;">We help cafés and hotels increase visibility, attract more customers and drive consistent bookings through digital marketing.</p>
         <div>
-          <div
-            style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-            <div
-              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-              Email</div>
+          <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">Email</div>
             <div style="font-size:.86rem;color:rgba(255,255,255,.48);">rdwarakreddy@gmail.com</div>
           </div>
-
-          <div
-            style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-            <div
-              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-              Based in</div>
+          <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">Based in</div>
             <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Bangalore · India</div>
           </div>
-
           <div style="display:flex;align-items:baseline;gap:20px;padding:17px 0;">
-            <div
-              style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">
-              Response</div>
+            <div style="font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2);width:86px;">Response</div>
             <div style="font-size:.86rem;color:rgba(255,255,255,.48);">Within 24 hours</div>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT SIDE (REPLACED FORM WITH CTA) -->
-      <div class="rv d2" style="display:flex;flex-direction:column;justify-content:center;gap:28px;">
-
-        <div
-          style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:40px;border-radius:6px;">
-
-          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#F97316;margin-bottom:16px;">
-            Start now
-          </div>
-
-          <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;margin-bottom:14px;">
-            Want more customers<br>this month?
-          </div>
-
-          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:28px;">
-            Skip the forms. Just reach out directly — we’ll understand your business and suggest what actually works.
-          </p>
-
-          <!-- CTA BUTTONS -->
+      <div class="rv" style="display:flex;flex-direction:column;justify-content:center;gap:28px;">
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:40px;border-radius:6px;">
+          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#F97316;margin-bottom:16px;">Start now</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#fff;margin-bottom:14px;">Want more customers<br>this month?</div>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:28px;">Skip the forms. Just reach out directly — we'll understand your business and suggest what actually works.</p>
           <div style="display:flex;flex-direction:column;gap:12px;">
-
-            <a href="https://wa.me/919701491742" target="_blank"
-              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#f47040;color:#000;padding:14px;border-radius:2px;font-weight:600;">
-              WhatsApp us →
-            </a>
-
-            <a href="tel:+919701491742"
-              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#000;padding:14px;border-radius:2px;font-weight:600;">
-              Call now →
-            </a>
-
-            <a href="mailto:rdwarakreddy@gmail.com"
-              style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px;border-radius:2px;">
-              Send email →
-            </a>
-
+            <a href="https://wa.me/919701491742" target="_blank" style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#f47040;color:#000;padding:14px;border-radius:2px;font-weight:600;">WhatsApp us →</a>
+            <a href="tel:+919701491742" style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#000;padding:14px;border-radius:2px;font-weight:600;">Call now →</a>
+            <a href="mailto:rdwarakreddy@gmail.com" style="text-decoration:none;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px;border-radius:2px;">Send email →</a>
           </div>
         </div>
-
-        <!-- TRUST LINE -->
-        <div style="font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.6;">
-          Trusted by cafés, restaurants & hospitality brands across Bangalore.
-        </div>
-
+        <div style="font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.6;">Trusted by cafés, restaurants & hospitality brands across Bangalore.</div>
       </div>
 
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer
-    style="background:#000;border-top:1px solid rgba(255,255,255,.05);padding:38px 60px;display:flex;align-items:center;justify-content:space-between;">
-    <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(255,255,255,.14);">Sunny<span
-        style="color:#F97316;font-weight:400;">&</span>co</div>
-    <div style="font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:.03em;">© 2026 Sunny&amp;co Studio. All
-      rights reserved.</div>
+  <footer style="background:#000;border-top:1px solid rgba(255,255,255,.05);padding:38px 60px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(255,255,255,.14);">Sunny<span style="color:#F97316;">&</span>co</div>
+    <div style="font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:.03em;">© 2026 Sunny&amp;co Studio. All rights reserved.</div>
     <div class="ft-lnks" style="display:flex;gap:24px;">
-      <a href="#"
-        style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;"
-        onmouseover="this.style.color='rgba(255,255,255,.5)'"
-        onmouseout="this.style.color='rgba(255,255,255,.18)'">Instagram</a>
-      <a href="#"
-        style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;"
-        onmouseover="this.style.color='rgba(255,255,255,.5)'"
-        onmouseout="this.style.color='rgba(255,255,255,.18)'">LinkedIn</a>
-      <a href="#"
-        style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;"
-        onmouseover="this.style.color='rgba(255,255,255,.5)'"
-        onmouseout="this.style.color='rgba(255,255,255,.18)'">Dribbble</a>
-      <a href="#"
-        style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;"
-        onmouseover="this.style.color='rgba(255,255,255,.5)'"
-        onmouseout="this.style.color='rgba(255,255,255,.18)'">Privacy</a>
+      <a href="#" style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.18)'">Instagram</a>
+      <a href="#" style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.18)'">LinkedIn</a>
+      <a href="#" style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.18)'">Dribbble</a>
+      <a href="#" style="font-size:.69rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.18)'">Privacy</a>
     </div>
   </footer>
 
   <script>
-    /* MOBILE MENU TOGGLE */
+    const closeMenu = document.getElementById('closeMenu');
+
+closeMenu.addEventListener('click', () => {
+  mobileMenu.style.right = '-100%';
+  menuBtn.classList.remove('active');
+  menuOpen = false;
+});
+    /* MOBILE MENU */
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-
     let menuOpen = false;
 
     menuBtn.addEventListener('click', () => {
       menuOpen = !menuOpen;
-
-      if (menuOpen) {
-        mobileMenu.style.right = "0";
-        menuBtn.classList.add('active'); // 🔥 make X
-      } else {
-        mobileMenu.style.right = "-100%";
-        menuBtn.classList.remove('active'); // 🔥 back to hamburger
-      }
+      mobileMenu.style.right = menuOpen ? '0' : '-100%';
+      menuBtn.classList.toggle('active', menuOpen);
     });
 
-    /* CLOSE MENU ON LINK CLICK */
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.style.right = "-100%";
+        mobileMenu.style.right = '-100%';
         menuBtn.classList.remove('active');
         menuOpen = false;
       });
     });
 
-    /* AUTO CLOSE ON SCREEN RESIZE */
     window.addEventListener('resize', () => {
       if (window.innerWidth > 960) {
-        mobileMenu.style.right = "-100%";
+        mobileMenu.style.right = '-100%';
         menuBtn.classList.remove('active');
         menuOpen = false;
       }
     });
 
-    /* CLOSE MENU ON CLICK */
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.style.right = "-100%";
-        menuOpen = false;
-      });
-    });
     /* CURSOR */
     const cdot = document.getElementById('cdot'), cring = document.getElementById('cring');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function loop() { rx += (mx - rx) * .13; ry += (my - ry) * .13; cdot.style.cssText = `left:${mx}px;top:${my}px;`; cring.style.cssText = `left:${rx}px;top:${ry}px;`; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button,.svc-card,.bc,.tc,.tnb').forEach(el => {
+    (function loop() {
+      rx += (mx - rx) * .13; ry += (my - ry) * .13;
+      cdot.style.cssText = `left:${mx}px;top:${my}px;`;
+      cring.style.cssText = `left:${rx}px;top:${ry}px;`;
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.svc-card,.sc').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('hl'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('hl'));
     });
 
-    /* PROGRESS + NAV */
+    /* PROGRESS + NAV SCROLL */
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - innerHeight;
       document.getElementById('pbar').style.width = (scrollY / h * 100) + '%';
@@ -1396,18 +626,7 @@
     }, { passive: true });
 
     /* TICKER */
-    const tw = [
-      'Search Engine Optimization (SEO)',
-      'Social Media Management',
-      'Performance Marketing',
-      'Pay-Per-Click (PPC)',
-      'Content Strategy',
-      'Email Campaigns',
-      'Lead Generation',
-      'Marketing Automation',
-      'Analytics & Insights',
-      'Growth Strategy'
-    ];
+    const tw = ['Search Engine Optimization (SEO)','Social Media Management','Performance Marketing','Pay-Per-Click (PPC)','Content Strategy','Email Campaigns','Lead Generation','Marketing Automation','Analytics & Insights','Growth Strategy'];
     const tr = document.getElementById('ttrack');
     [...tw, ...tw, ...tw, ...tw].forEach(w => {
       const s = document.createElement('span');
@@ -1419,37 +638,33 @@
       tr.appendChild(s);
     });
 
-    /* REVEAL */
-    const ro = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } }); }, { threshold: .07, rootMargin: '0px 0px -36px 0px' });
+    /* REVEAL ON SCROLL */
+    const ro = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+    }, { threshold: .07, rootMargin: '0px 0px -36px 0px' });
     document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-
-    /* FORM */
-    function handleForm(e) {
-      e.preventDefault();
-      const b = document.getElementById('cf-btn');
-      b.textContent = '✓ Received — we\'ll be in touch soon.';
-      b.style.background = 'rgba(255,255,255,.1)'; b.style.color = 'rgba(255,255,255,.5)';
-      setTimeout(() => { b.textContent = 'Send message →'; b.style.background = '#F97316'; b.style.color = '#fff'; }, 5000);
-    }
 
     /* THREE.JS HERO */
     (function heroGL() {
       const cv = document.getElementById('hcv');
       const W = cv.offsetWidth, H = cv.offsetHeight;
       const ren = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
-      ren.setPixelRatio(Math.min(devicePixelRatio, 1.8)); ren.setSize(W, H);
+      ren.setPixelRatio(Math.min(devicePixelRatio, 1.8));
+      ren.setSize(W, H);
       const scene = new THREE.Scene();
-      const cam = new THREE.PerspectiveCamera(58, W / H, .1, 100); cam.position.z = 6.2;
+      const cam = new THREE.PerspectiveCamera(58, W / H, .1, 100);
+      cam.position.z = 6.2;
 
-      const iGeo = new THREE.IcosahedronGeometry(1.75, 1);
-      const ico = new THREE.Mesh(iGeo, new THREE.MeshStandardMaterial({ color: 0x111111, metalness: .96, roughness: .04 }));
+      const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(1.75, 1), new THREE.MeshStandardMaterial({ color: 0x111111, metalness: .96, roughness: .04 }));
       const icoW = new THREE.Mesh(new THREE.IcosahedronGeometry(1.77, 1), new THREE.MeshBasicMaterial({ color: 0xF97316, wireframe: true, opacity: .07, transparent: true }));
       scene.add(ico, icoW);
 
       const rings = [];
       [0x444444, 0xF97316, 0xff9940].forEach((c, i) => {
         const m = new THREE.Mesh(new THREE.TorusGeometry(2.7 + i * .55, .007, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .1 - .025 * i }));
-        m.rotation.set(i * Math.PI / 4, i * Math.PI / 3.5, 0); m.ud = { rx: .0012 + i * .0008, ry: .0018 + i * .0005 }; rings.push(m); scene.add(m);
+        m.rotation.set(i * Math.PI / 4, i * Math.PI / 3.5, 0);
+        m.ud = { rx: .0012 + i * .0008, ry: .0018 + i * .0005 };
+        rings.push(m); scene.add(m);
       });
 
       const debris = [];
@@ -1458,12 +673,13 @@
         const geo = i % 2 === 0 ? new THREE.OctahedronGeometry(s) : new THREE.TetrahedronGeometry(s);
         const m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: [0xF97316, 0xff9940, 0x222222, 0x444444][i % 4], metalness: .8, roughness: .2 }));
         m.position.set((Math.random() - .5) * 9, (Math.random() - .5) * 5.5, (Math.random() - .5) * 3);
-        m.ud = { oy: m.position.y, sp: .25 + Math.random() * .4, ph: Math.random() * Math.PI * 2 }; debris.push(m); scene.add(m);
+        m.ud = { oy: m.position.y, sp: .25 + Math.random() * .4, ph: Math.random() * Math.PI * 2 };
+        debris.push(m); scene.add(m);
       }
 
       const pg = new THREE.BufferGeometry();
       const pa = new Float32Array(360 * 3);
-      for (let i = 0; i < 360; i++) { pa[i * 3] = (Math.random() - .5) * 18; pa[i * 3 + 1] = (Math.random() - .5) * 12; pa[i * 3 + 2] = (Math.random() - .5) * 7; }
+      for (let i = 0; i < 360; i++) { pa[i*3] = (Math.random()-.5)*18; pa[i*3+1] = (Math.random()-.5)*12; pa[i*3+2] = (Math.random()-.5)*7; }
       pg.setAttribute('position', new THREE.BufferAttribute(pa, 3));
       scene.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xF97316, size: .016, transparent: true, opacity: .3 })));
 
@@ -1489,5 +705,4 @@
     })();
   </script>
 </body>
-
 </html>
